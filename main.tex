@@ -1,0 +1,128 @@
+% 中文请用ctexbeamer, 个人觉得行距linespread宽一点看起来比较舒服。
+\documentclass[aspectratio=1610,linespread=1.4,t]{ctexbeamer}
+
+% If this is an English-only deck, you don't need ctexbeamer nor the wider linespread
+% \documentclass[aspectratio=1610,t]{beamer}
+% But load fontspec so that you can load OTF/TTF fonts if you want to!
+% \usepackage{fontspec} 
+
+% beamerthemeMirage.sty v1.0 2024/04/14
+% by LianTze Lim (liantze@gmail.com)
+% A beamer theme inspired by Zhou Shen's `Mirage' song  poster
+% 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
+\usetheme{Mirage}           % Default = dark mode
+% \usetheme[light]{Mirage}  % Alternative light mode 
+
+% Mirage theme loads the fontawesome5 package
+
+\title{Mirage Theme 蜃楼}
+\subtitle{静待《反深代词》全面上线}
+\author{董敏儿}
+\institute{（懂自懂）}
+\date{2024/04/14}
+
+% These fonts will work with pdflatex, xelatex, lualatex
+\usepackage[lining,tabular]{carlito}
+\usepackage{caladea}
+
+% But unicode and TTF/OTF fonts will only work with xelatex, lualatex
+\usepackage{unicode-math}
+% \setmathfont{STIX Two Math}
+% \setmathfont{Erewhon Math}
+\setmathfont{Fira Math}
+
+\begin{document}
+
+\frame{\maketitle}
+
+\section{Intro}
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{itemize}
+    \item 看机械的白鸽\faDove{} 从空中飞过 
+    \item 要如何点睛\faEye[regular] 它才堪称鲜活
+
+\begin{enumerate}
+    \item 数字的晨昏\faCloudSun{} 是否更缤纷\faCloudMoon
+    \item 仿生的情人\faGrinHearts{} 是否更忠贞\faGrin*[regular]
+\end{enumerate}
+
+    \item 推开一扇门\faDoorOpen{} 还有万千重门\faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
+\end{itemize}
+
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}
+\frametitle{那来自过去 古老的眼神}
+    \begin{enumerate}
+        \item 如何能辨认 此刻是幻是真
+        \begin{enumerate}
+	        \item 人造的天分 是否算慧根
+	        \begin{enumerate}
+		        \item 克隆的肉身 是否有灵魂
+		        \item 永远在追问 却从来都没结论
+	        \end{enumerate}
+        \end{enumerate}
+        \item \alert{Can it be real}
+    \end{enumerate}
+
+\end{frame}
+
+\section{Blocks}
+
+\begin{frame}[c]
+\frametitle{智慧的天梯从来都没尽头}
+\begin{columns}
+\begin{column}{.4\textwidth}
+\begin{pullquote}
+    Can it be real\\
+    The world is a mirage
+\end{pullquote}
+\end{column}
+
+\begin{column}{.53\textwidth}
+\setbeamercolor{pullquote}{fg=MirageBlue}
+\renewcommand{\MiragePullquoteOpen}{\hskip-.2\ccwd『}
+\begin{pullquote}
+在电幻的荒丘　寻真实的绿洲\\
+渺小得如蜉蝣　也仰望着宇宙
+\end{pullquote}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+% \renewcommand{\MirageFrametitlePrefix}{\faDove}
+% \renewcommand{\MirageProofPrefix}{\faCheckSquare[regular]}
+% \renewcommand{\MirageTheoremPrefix}{\faCogs}
+
+\begin{frame}[allowframebreaks]{各种block 123}
+    \begin{exampleblock}{算了我也不知道在写什么，do you?}
+    Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. 对各位同学来说应该挑战不大。
+    \end{exampleblock}
+    
+    \begin{alertblock}{算了我也不知道在写什么，do you?}
+    \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{alertblock}
+    
+    \begin{block}{算了我也不知道在写什么，do you?}
+    \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{block}
+    
+    \begin{proof}
+    显而易见，$1+1=2$.
+    \end{proof}
+
+    \begin{theorem}
+    有一件很美好的事情将要发生，它终会发生。
+    \end{theorem}
+    
+    \begin{definition}
+    有一件很美好的事情将要发生，它终会发生。
+    \end{definition}
+\end{frame}
+
+
+\end{document}

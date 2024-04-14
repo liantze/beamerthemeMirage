@@ -1,0 +1,147 @@
+% beamerthemeMirage.sty v1.0 2024/04/14
+% by LianTze Lim (liantze@gmail.com)
+% A beamer theme inspired by Zhou Shen's `Mirage' song  poster
+% 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
+\ProvidesPackage{beamerthemeMirage}
+
+\newif\ifMirage@light
+\DeclareOptionBeamer{light}{\Mirage@lighttrue}    
+\ProcessOptionsBeamer
+
+\RequirePackage[fixed]{fontawesome5}
+
+\definecolor{MirageGray0}{RGB}{30,30,30}
+\definecolor{MirageGray1}{RGB}{48,48,48}
+\definecolor{MirageGray2}{RGB}{140,140,140}
+\definecolor{MirageGray3}{RGB}{60,66,71}
+\definecolor{MiragePink}{RGB}{212,183,183}
+\definecolor{MirageBlue}{RGB}{156,185,220}
+
+\ifMirage@light
+  \setbeamercolor{normal text}{fg=MirageGray3,bg=white}
+  \setbeamercolor{structure}{fg=MirageBlue!80!MirageGray0}
+\else
+  \setbeamercolor{normal text}{bg=MirageGray3,fg=white}
+  \setbeamercolor{structure}{fg=MirageBlue}
+\fi
+\setbeamercolor{alerted text}{fg=MiragePink!60!red!80!MirageGray0}
+\setbeamercolor{section in head/foot}{fg=structure!80}
+\setbeamercolor{page number in head/foot}{fg=structure!80}
+
+\usetheme[compress]{Singapore}
+\setbeamertemplate{blocks}[rounded]
+
+\setbeamerfont{block title}{family=\rmfamily,series=\bfseries}
+
+\ifMirage@light
+  \setbeamercolor{block body}{bg=MirageBlue!90,fg=MirageBlue!40!black}
+\else
+  \setbeamercolor{block body}{fg=MirageBlue,bg=MirageBlue!40!black}
+\fi
+\setbeamercolor{block title}{fg=MirageBlue!90,bg=MirageBlue!30!black}
+
+\setbeamercolor{block body example}{fg=MirageGray3,bg=MirageBlue!40}
+\setbeamercolor{block title example}{bg=MirageBlue!90,fg=MirageBlue!30!black}
+
+\setbeamercolor{block body alerted}{fg=MirageGray3,bg=MiragePink!30}
+\ifMirage@light
+  \setbeamercolor{block title alerted}{fg=MiragePink!60!red!80!MirageGray0,bg=MiragePink!80}
+\else
+  \setbeamercolor{block title alerted}{fg=MiragePink!60!red!80!MirageGray0,bg=MiragePink}
+\fi
+
+\newcommand{\MirageProofPrefix}{\faEllipsisH}
+\newcommand{\MirageTheoremPrefix}{\faChevronRight}
+
+\addtobeamertemplate{proof begin}{%
+    \let\oldinsertproofname\insertproofname%
+  \def\insertproofname{{\color{block title.fg!50!block title.bg}\MirageProofPrefix}\oldinsertproofname}%
+}{}
+
+\addtobeamertemplate{theorem begin}{%
+    \let\oldinserttheoremname\inserttheoremname%
+  \def\inserttheoremname{{\color{block title.fg!50!block title.bg}\MirageTheoremPrefix}\oldinserttheoremname}%
+}{}
+
+
+\ifMirage@light
+  \setbeamercolor{pullquote}{fg=MiragePink!90!normal text.fg}
+\else
+  \setbeamercolor{pullquote}{fg=MiragePink}
+\fi
+\setbeamerfont{pullquote}{family=\rmfamily,size=\Large,shape=\itshape}
+\newcommand{\MiragePullquoteOpen}{\faQuoteLeft}
+\newcommand{\MiragePullquoteClose}{\faQuoteRight}
+\newenvironment{pullquote}{%
+  \usebeamercolor{pullquote}%
+  \color{pullquote.fg!15!normal text.bg}\hrule width \hsize height 0.15ex\vskip2ex%
+  \begin{beamercolorbox}[colsep=1ex,leftskip=1em]{pullquote}%
+  \usebeamerfont{pullquote}%
+  \raisebox{0pt}[0pt][0pt]{\makebox[0pt]{\color{pullquote.fg!30!normal text.bg}\hskip-1em\huge\MiragePullquoteOpen}}%
+  \ignorespaces%
+}{%
+  \end{beamercolorbox}%
+  \vskip2ex\hrule width \hsize height 0.15ex%
+}
+
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{frametitle continuation}[from second]
+\ifMirage@light
+    \pgfdeclareverticalshading{mirage@headfade}{\the\paperwidth}{%
+      color(0ex)=(white);%
+      color(0.2ex)=(MirageBlue);%
+      color(1.3ex)=(MiragePink);%
+      color(1.7ex)=(white)%
+    }
+\else
+    \pgfdeclareverticalshading{mirage@headfade}{\the\paperwidth}{%
+      color(0ex)=(MirageGray0);%
+      color(0.2ex)=(MirageBlue);%
+      color(1.3ex)=(MiragePink);%
+      color(1.7ex)=(MirageGray1)%
+    }
+\fi
+\addtobeamertemplate{headline}{}{%
+  \vskip1ex%
+  \pgfpathrectangle{\pgfpoint{0pt}{0pt}}{\pgfpoint{\paperwidth}{1.7ex}}
+  \pgfuseshading{mirage@headfade}
+  \vskip-2ex%
+}{}
+
+\RequirePackage{tikz}
+\usetikzlibrary{shadows}
+
+\pgfdeclareradialshading{tikz@lib@fade@circle@50}{\pgfpointorigin}{
+  color(0pt)=(pgftransparent!0); color(20bp)=(pgftransparent!0);
+  color(25bp)=(pgftransparent!100); color(80bp)=(pgftransparent!100)}%
+\pgfdeclarefading{circle with fuzzy edge 50 percent}{\pgfuseshading{tikz@lib@fade@circle@50}}%
+
+
+\newbox{\Mirage@smalleclipse}
+\savebox{\Mirage@smalleclipse}{%
+  \usebeamercolor{normal text}%
+  \tikz{\node[anchor=center,circle,circular glow={fill=MiragePink,shadow scale=2.5, path fading={circle with fuzzy edge 50 percent}},draw=normal text.fg,fill=normal text.fg,outer sep=0pt,inner sep=0.2ex](O){};%
+  \draw[line width=0.1ex,draw=normal text.fg](0.3ex,0pt) -- ++(0.75\paperwidth,0pt);%
+  }%
+}%
+
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[ht=2.5ex,dp=1ex,right,sep=0.5ex]{page number in head/foot}%
+  \leavevmode\usebox{\Mirage@smalleclipse}%
+  \vskip-1ex%
+  \insertframenumber{} of \inserttotalframenumber{}\hspace*{1ex}%
+  \end{beamercolorbox}%
+}{}
+
+\setbeamertemplate{frametitle}[default][left]
+\setbeamerfont{title}{family=\rmfamily\addfontfeatures{LetterSpace=5},size=\LARGE,series=\bfseries}
+\setbeamerfont{frametitle}{family=\rmfamily,size=\Large,series=\bfseries}
+
+\newcommand{\MirageFrametitlePrefix}{\faBorderStyle}
+\addtobeamertemplate{frametitle}{%
+  \let\oldinsertframetitle\insertframetitle%
+  \renewcommand{\insertframetitle}{{\color{frametitle.fg!50!frametitle.bg}\normalsize\MirageFrametitlePrefix}\oldinsertframetitle}%
+}
+
