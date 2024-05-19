@@ -1,7 +1,7 @@
 # "Mirage" “蜃楼” beamer theme
 
-A beamer theme inspired by Zhou Shen's [`Mirage' song  poster](https://y.qq.com/music/photo_new/T002R800x800M000001D1RVa1THf8K.jpg).
-基于周深《反深代词》先行曲[《蜃楼》歌曲海报](https://y.qq.com/music/photo_new/T002R800x800M000001D1RVa1THf8K.jpg)的beamer主题。
+A beamer theme inspired by Zhou Shen's [`Mirage' song  poster](https://inews.gtimg.com/om_bt/OBrBfpq-0M6Q5dTbkIR4Cv-rXARTcTTWkBzBp_cWexlEUAA/0).
+基于周深《[反](https://y.qq.com/n/ryqq/albumDetail/003szpvI3LMhQ7)[深](https://music.163.com/#/album?id=190605791)[代](https://music.apple.com/cn/album/%E5%8F%8D%E6%B7%B1%E4%BB%A3%E8%AF%8D-ep/1746253956)[词](https://open.spotify.com/album/02ygNWa0juxhPjWOAs3yNv)》专辑的先行曲[《蜃楼》歌曲海报](https://inews.gtimg.com/om_bt/OBrBfpq-0M6Q5dTbkIR4Cv-rXARTcTTWkBzBp_cWexlEUAA/0)的beamer主题。
 
 以前也做过基于周深在流淌的歌声里[（近乎）清唱《青花瓷》](https://www.bilibili.com/bangumi/play/ep332561)印象的[beamer主题“天青色”](https://github.com/liantze/pgfornament-han/blob/master/beamerthemeTianQing.sty)，这次是基于《蜃楼》主题海报的色调，简单地试做了一个版本。
 
