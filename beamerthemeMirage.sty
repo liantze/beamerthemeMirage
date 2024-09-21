@@ -1,4 +1,4 @@
-% beamerthemeMirage.sty v1.0 2024/04/14
+% beamerthemeMirage.sty v1.01 2024/09/18
 % by LianTze Lim (liantze@gmail.com)
 % A beamer theme inspired by Zhou Shen's `Mirage' song  poster
 % 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
@@ -8,7 +8,9 @@
 \DeclareOptionBeamer{light}{\Mirage@lighttrue}    
 \ProcessOptionsBeamer
 
+\RequirePackage{regexpatch}
 \RequirePackage[fixed]{fontawesome5}
+\RequirePackage{relsize}
 
 \definecolor{MirageGray0}{RGB}{30,30,30}
 \definecolor{MirageGray1}{RGB}{48,48,48}
@@ -20,14 +22,19 @@
 \ifMirage@light
   \setbeamercolor{normal text}{fg=MirageGray3,bg=white}
   \setbeamercolor{structure}{fg=MirageBlue!80!MirageGray0}
+  \setbeamercolor{item}{fg=MirageBlue!50!MirageGray0}
 \else
   \setbeamercolor{normal text}{bg=MirageGray3,fg=white}
   \setbeamercolor{structure}{fg=MirageBlue}
+  \setbeamercolor{item}{fg=MirageBlue!70!MirageGray0}
 \fi
 \setbeamercolor{alerted text}{fg=MiragePink!60!red!80!MirageGray0}
 \setbeamercolor{section in head/foot}{fg=structure!80}
 \setbeamercolor{page number in head/foot}{fg=structure!80}
 
+\xpatchcmd{\beamerboxesrounded}{#2}{\vspace*{0.5ex}#2\vspace*{0.5ex}}{}{}
+\xpatchcmd{\beamerboxesrounded}{\vskip2pt}{\vskip0.5ex}{}{}
+\pretocmd{\endbeamerboxesrounded}{\par\vspace*{0.5ex}}{}{}
 \usetheme[compress]{Singapore}
 \setbeamertemplate{blocks}[rounded]
 
@@ -51,16 +58,16 @@
 \fi
 
 \newcommand{\MirageProofPrefix}{\faEllipsisH}
-\newcommand{\MirageTheoremPrefix}{\faChevronRight}
+\newcommand{\MirageTheoremPrefix}{\faChevronCircleRight}
 
 \addtobeamertemplate{proof begin}{%
-    \let\oldinsertproofname\insertproofname%
-  \def\insertproofname{{\color{block title.fg!50!block title.bg}\MirageProofPrefix}\oldinsertproofname}%
+  \let\oldinsertproofname\insertproofname%
+  \def\insertproofname{{\color{block title.fg!50!block title.bg}\relsize{-1}\MirageProofPrefix}\oldinsertproofname}%
 }{}
 
 \addtobeamertemplate{theorem begin}{%
-    \let\oldinserttheoremname\inserttheoremname%
-  \def\inserttheoremname{{\color{block title.fg!50!block title.bg}\MirageTheoremPrefix}\oldinserttheoremname}%
+  \let\oldinserttheoremname\inserttheoremname%
+  \def\inserttheoremname{{\color{block title.fg!50!block title.bg}\relsize{-1}\MirageTheoremPrefix}\oldinserttheoremname}%
 }{}
 
 
@@ -118,20 +125,24 @@
   color(25bp)=(pgftransparent!100); color(80bp)=(pgftransparent!100)}%
 \pgfdeclarefading{circle with fuzzy edge 50 percent}{\pgfuseshading{tikz@lib@fade@circle@50}}%
 
-
+\newcommand{\MirageFootlineContents}{\insertframenumber{} of \inserttotalframenumber{}}
+\newlength{\MirageGlowRadius}
+\setlength{\MirageGlowRadius}{0.2ex}
 \newbox{\Mirage@smalleclipse}
-\savebox{\Mirage@smalleclipse}{%
-  \usebeamercolor{normal text}%
-  \tikz{\node[anchor=center,circle,circular glow={fill=MiragePink,shadow scale=2.5, path fading={circle with fuzzy edge 50 percent}},draw=normal text.fg,fill=normal text.fg,outer sep=0pt,inner sep=0.2ex](O){};%
-  \draw[line width=0.1ex,draw=normal text.fg](0.3ex,0pt) -- ++(0.75\paperwidth,0pt);%
+\AddToHook{begindocument/before}{
+  \savebox{\Mirage@smalleclipse}{%
+    \usebeamercolor{normal text}%
+    \tikz{\node[anchor=center,circle,circular glow={fill=MiragePink,shadow scale=2.5, path fading={circle with fuzzy edge 50 percent}},draw=normal text.fg,fill=normal text.fg,outer sep=0pt,inner sep=\MirageGlowRadius](O){};%
+    \draw[line width=0.1ex,draw=normal text.fg](0.3ex,0pt) -- ++(0.75\paperwidth,0pt);%
+    }%
   }%
-}%
+}
 
 \setbeamertemplate{footline}{%
   \begin{beamercolorbox}[ht=2.5ex,dp=1ex,right,sep=0.5ex]{page number in head/foot}%
   \leavevmode\usebox{\Mirage@smalleclipse}%
   \vskip-1ex%
-  \insertframenumber{} of \inserttotalframenumber{}\hspace*{1ex}%
+  \MirageFootlineContents\hspace*{1ex}%
   \end{beamercolorbox}%
 }{}
 
@@ -142,6 +153,6 @@
 \newcommand{\MirageFrametitlePrefix}{\faBorderStyle}
 \addtobeamertemplate{frametitle}{%
   \let\oldinsertframetitle\insertframetitle%
-  \renewcommand{\insertframetitle}{{\color{frametitle.fg!50!frametitle.bg}\normalsize\MirageFrametitlePrefix}\oldinsertframetitle}%
+  \renewcommand{\insertframetitle}{{\relsize{-1}\color{frametitle.fg!50!frametitle.bg}\MirageFrametitlePrefix}\oldinsertframetitle}%
 }
 

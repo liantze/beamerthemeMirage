@@ -10,8 +10,11 @@
 % by LianTze Lim (liantze@gmail.com)
 % A beamer theme inspired by Zhou Shen's `Mirage' song  poster
 % 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
-\usetheme{Mirage}           % Default = dark mode
-% \usetheme[light]{Mirage}  % Alternative light mode 
+% \usetheme{Mirage}           % Default = dark mode
+\usetheme[light]{Mirage}  % Alternative light mode 
+
+% The glowy light in the footnline
+% \setlength{\MirageGlowRadius}{0.25ex}
 
 % Mirage theme loads the fontawesome5 package
 
@@ -99,14 +102,15 @@
 % \renewcommand{\MirageTheoremPrefix}{\faCogs}
 
 \begin{frame}[allowframebreaks]{各种block 123}
+
     \begin{exampleblock}{算了我也不知道在写什么，do you?}
     Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. 对各位同学来说应该挑战不大。
     \end{exampleblock}
-    
+
     \begin{alertblock}{算了我也不知道在写什么，do you?}
     \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
     \end{alertblock}
-    
+
     \begin{block}{算了我也不知道在写什么，do you?}
     \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
     \end{block}
