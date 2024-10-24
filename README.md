@@ -1,48 +1,22 @@
-# "Mirage" “蜃楼” beamer theme
+# "Mirage" beamer theme “蜃楼” beamer 主题
 
-A beamer theme inspired by Zhou Shen's [`Mirage' song  poster](https://inews.gtimg.com/om_bt/OBrBfpq-0M6Q5dTbkIR4Cv-rXARTcTTWkBzBp_cWexlEUAA/0).
-基于周深《[反](https://y.qq.com/n/ryqq/albumDetail/003szpvI3LMhQ7)[深](https://music.163.com/#/album?id=190605791)[代](https://music.apple.com/cn/album/%E5%8F%8D%E6%B7%B1%E4%BB%A3%E8%AF%8D-ep/1746253956)[词](https://open.spotify.com/album/02ygNWa0juxhPjWOAs3yNv)》专辑的先行曲[《蜃楼》歌曲海报](https://inews.gtimg.com/om_bt/OBrBfpq-0M6Q5dTbkIR4Cv-rXARTcTTWkBzBp_cWexlEUAA/0)的beamer主题。
+A beamer theme inspired by the [album art](https://www.instagram.com/juncenart/p/C5LuwoSrBnW/?img_index=2) of Zhou Shen's song [_Mirage_](https://open.spotify.com/track/1PR9aOkY0dyRRL81YXv9a4). 
 
-以前也做过基于周深在流淌的歌声里[（近乎）清唱《青花瓷》](https://www.bilibili.com/video/BV1my4y1B7Vx/?p=156)印象的[beamer主题“天青色”](https://github.com/liantze/pgfornament-han/blob/master/beamerthemeTianQing.sty)，这次是基于《蜃楼》主题海报的色调，简单地试做了一个版本。
+Two modes are available: the default with a dark look; and a `light` mode is available. Sample .tex files for beamer presentations and posters are provided.
 
-Compile with XeLaTeX or LuaLaTeX. You may need to compile twice for the total number of frames in the footer to come out correctly.
 
-请用 XeLaTeX 或 LuaLaTeX 编译。
+基于周深《[反深](https://y.qq.com/n/ryqq/albumDetail/003szpvI3LMhQ7)[代词](https://music.163.com/#/album?id=190605791)》专辑的先行曲[《蜃楼》歌曲封面](http://xhslink.com/a/oF7IHZ0uUYkY)二创的beamer主题。
 
-## Default and `light` mode
-The default has a dark look: 默认模式是dark:
+两种模式可选：默认模式颜色深沉，`light`模式颜色较浅。详细使用方法可参考示范.tex文档。
 
 ```latex
 \usetheme{Mirage}
-```
-
-<img src="mirage-dark.jpg" width="800px" />
-
-
-There's a `light` mode too, handy if you want to print things out: 也有 `light` 模式，比较适合列印，省墨水：
-
-```latex
+% or
 \usetheme[light]{Mirage}
 ```
 
-<img src="mirage-light.jpg" width="800px" />
+## Maintainer 宏包维护
+LianTze Lim 林莲枝 (liantze@gmail.com)
 
-
-## Posters
-
-See `poster.tex` for creating posters with the `beamerposter` package. 也可以和`beamerposter`一起用来制作海报，参照`poster.tex`.
-
-<img src="mirage-poster-dark.png" width="400px" />
-<img src="mirage-poster-light.png" width="400px" />
-
-
-
-## Some simple customisation options 可供调整的元素
-
-- I've loaded the `caladea`, `carlito` font packages and set Fira Math as the math font in `main.tex`. You can change these to fit your own preferences.
-- `pullquote` is a custom environment; you can change the `beamer font` and `beamer color`, and `\renewcommand` the `\MiragePullquoteOpen` marker (see frame 4).
-- Other markers that can be `\renewcommand`: `\MirageFrametitlePrefix`, `\MirageProofPrefix`
-and `\MirageTheoremPrefix` for prefix icons of the frame title, `proof` block title and `theorem`-like block titles. (See commented code before slide 5.)
-- `\MirageGlowRadius` is a length controlling the size of the glowy circle in the footline; especially useful when creating posters with `beamerposter`.
-
-`beamerthemeMirage` loads `fontawesome5` so you can use icons provided by this package.
+## License
+[LaTeX Project Public License (LPPL 1.3c)](https://www.latex-project.org/lppl/lppl-1-3c/)

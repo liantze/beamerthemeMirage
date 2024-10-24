@@ -1,0 +1,138 @@
+\documentclass[aspectratio=1610]{beamer}
+% This can be compiled with pdflatex.
+% Load fontspec so that you can load OTF/TTF fonts if you want to; but then you must compile with xelatex or lualatex!
+% \usepackage{fontspec} 
+
+% beamerthemeMirage.sty v1.0 2024/04/14
+% by LianTze Lim (liantze@gmail.com)
+% A beamer theme inspired by Zhou Shen's `Mirage' song poster
+% \usetheme{Mirage}           % Default = dark mode
+\usetheme[light]{Mirage}  % Alternative light mode 
+
+% The glowy light in the footnline
+% \setlength{\MirageGlowRadius}{0.25ex}
+
+% Mirage theme loads the fontawesome5 package
+
+\title{Mirage Theme}
+\subtitle{Inspired by the song poster of the lead single, \emph{Mirage}}
+\author{LianTze Lim}
+\institute{The full album \emph{Shenself} now available on all major music  platforms}
+\date{2024/10/22}
+
+\usepackage{iftex}
+
+% These fonts will work with pdflatex, xelatex, lualatex
+\usepackage[lining,tabular]{carlito}
+\usepackage{caladea}
+
+\ifboolexpr{bool{xetex} or bool{luatex}}{
+  % Unicode-math and TTF/OTF fonts will only work with xelatex, lualatex
+  \usepackage{unicode-math}
+  % \setmathfont{STIX Two Math}
+  % \setmathfont{Erewhon Math}
+  \setmathfont{Fira Math}
+}{% Sans math font in pdflatex:
+  \usepackage[T1]{fontenc}
+  \usepackage{newtxsf}
+}
+
+
+\begin{document}
+
+\frame{\maketitle}
+
+\section{Intro}
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{itemize}
+    \item Behold the mechanical dove \faDove{} flying through the air 
+    \item How might its eyes be lit \faEye[regular] that it appears lifelike
+
+\begin{enumerate}
+    \item Are digital dawns and dusks \faCloudSun{} more colourful? \faCloudMoon
+    \item Are bionic lovers \faGrinHearts{} more loyal? \faGrin*[regular]
+\end{enumerate}
+
+    \item Push this one door open \faDoorOpen{} and there are thousands more \faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
+\end{itemize}
+
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}
+\frametitle{The ancient gaze from aeons ago}
+    \begin{enumerate}
+        \item How might it discern if this moment is fantasy or real
+        \begin{enumerate}
+	        \item Is man-made talent true inherent wisdom?
+	        \begin{enumerate}
+		        \item Do cloned bodies have souls?
+		        \item Forever questioning, but ever without a conclusion
+	        \end{enumerate}
+        \end{enumerate}
+        \item \alert{Can it be real}
+    \end{enumerate}
+
+\end{frame}
+
+\section{Blocks}
+
+\begin{frame}[c]
+\frametitle{The Heavenward Staircase of Wisdom is ever endless}
+\begin{columns}
+\begin{column}[b]{.35\textwidth}
+\begin{pullquote}
+    Can it be real\\
+    The world is a mirage
+\end{pullquote}
+\end{column}
+
+\begin{column}[t]{.65\textwidth}
+\setbeamercolor{pullquote}{fg=MirageBlue}
+\renewcommand{\MiragePullquoteOpen}{«}
+\begin{pullquote}
+Amidst barren hills of electronic fantasies\\
+I search for oases of truth\\
+Though as small as mayflies\\
+I dare gaze at the galaxies
+\end{pullquote}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+% \renewcommand{\MirageFrametitlePrefix}{\faDove}
+% \renewcommand{\MirageProofPrefix}{\faCheckSquare[regular]}
+% \renewcommand{\MirageTheoremPrefix}{\faCogs}
+
+\begin{frame}[allowframebreaks]{Blocks blocks blocks 123}
+
+    \begin{exampleblock}{Gosh I've no idea what I'm writing, do you?}
+    Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. This should be easy, right?
+    \end{exampleblock}
+
+    \begin{alertblock}{Gosh I've no idea what I'm writing, do you?}
+    \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{alertblock}
+
+    \begin{block}{Gosh I've no idea what I'm writing, do you?}
+    \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{block}
+    
+    \begin{proof}
+    As everyone can clearly see, $1+1=2$.
+    \end{proof}
+
+    \begin{theorem}
+    A wonderful thing is about to happen -- it \emph{will} eventually happen.
+    \end{theorem}
+    
+    \begin{definition}
+    A wonderful thing is about to happen -- it \emph{will} eventually happen.
+    \end{definition}
+\end{frame}
+
+
+\end{document}

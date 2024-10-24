@@ -1,18 +1,27 @@
-% Just use beamer, not ctexbeamer, if you're not typesetting Chinese
-% \documentclass{beamer}
-\documentclass[linespread=1.4,t]{ctexbeamer}
+\documentclass{beamer}
 
 \usepackage[size=a3,orientation=portrait,scale=1.4]{beamerposter}
 
 % (Mirage theme already loads fontawesome5)
-\usetheme{Mirage}
-% \usetheme[light]{Mirage}
+% \usetheme{Mirage}
+\usetheme[light]{Mirage}
 
-% fonts
+\usepackage{iftex}
+
+% These fonts will work with pdflatex, xelatex, lualatex
 \usepackage[lining,tabular]{carlito}
 \usepackage{caladea}
-\usepackage{unicode-math}
-\setmathfont{Erewhon Math}
+
+\ifboolexpr{bool{xetex} or bool{luatex}}{
+  % Unicode-math and TTF/OTF fonts will only work with xelatex, lualatex
+  \usepackage{unicode-math}
+  % \setmathfont{STIX Two Math}
+  % \setmathfont{Erewhon Math}
+  \setmathfont{Fira Math}
+}{% Sans math font in pdflatex:
+  \usepackage[T1]{fontenc}
+  \usepackage{newtxsf}
+}
 
 
 % beamer slides -> poster = some adjustments needed
@@ -60,9 +69,9 @@
 \addbibresource{sample-refs.bib}
 
 
-\title{当蜃楼Mirage主题拿来做海报}
-\author{作者甲、作者乙、作者丙}
-\renewcommand{\MirageFootlineContents}{Dept of XX, Uni of YY, 某某大学，其它适合资讯}
+\title{Using the Mirage theme for posters}
+\author{John Doe, Jane Smith and A.~N.~Other }
+\renewcommand{\MirageFootlineContents}{Dept of XX, Uni of YY, other information as appropriate}
 
 \begin{document}
 
@@ -73,27 +82,27 @@
 \begin{block}{Introduction}
 
 \begin{itemize}
-    \item 看机械的白鸽\faDove{} 从空中飞过 
-    \item 要如何点睛\faEye[regular] 它才堪称鲜活
+    \item Behold the mechanical dove \faDove{} flying through the air 
+    \item How might its eyes be lit \faEye[regular] that it appears lifelike
 
 \begin{enumerate}
-    \item 数字的晨昏\faCloudSun{} 是否更缤纷\faCloudMoon
-    \item 仿生的情人\faGrinHearts{} 是否更忠贞\faGrin*[regular]
+    \item Are digital dawns and dusks \faCloudSun{} more colourful? \faCloudMoon
+    \item Are bionic lovers \faGrinHearts{} more loyal? \faGrin*[regular]
 \end{enumerate}
 
-    \item 推开一扇门\faDoorOpen{} 还有万千重门\faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
+    \item Push this one door open \faDoorOpen{} and there are thousands more \faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
 \end{itemize}
 
 \end{block}
 
-\begin{block}{那来自过去 古老的眼神}
+\begin{block}{The ancient gaze from aeons ago}
     \begin{enumerate}
-        \item 如何能辨认 此刻是幻是真
+        \item How might it discern if this moment is fantasy or real
         \begin{enumerate}
-	        \item 人造的天分 是否算慧根
+	        \item Is man-made talent true inherent wisdom?
 	        \begin{enumerate}
-		        \item 克隆的肉身 是否有灵魂
-		        \item 永远在追问 却从来都没结论
+		        \item Do cloned bodies have souls?
+		        \item Forever questioning, but ever without a conclusion
 	        \end{enumerate}
         \end{enumerate}
         \item \alert{Can it be real}
@@ -108,43 +117,43 @@
 \bigskip
     
 \setbeamercolor{pullquote}{fg=MirageBlue}
-\renewcommand{\MiragePullquoteOpen}{\hskip-.2\ccwd『}
+\renewcommand{\MiragePullquoteOpen}{«}
 \begin{pullquote}
-在电幻的荒丘　寻真实的绿洲\\
-渺小得如蜉蝣　也仰望着宇宙
+Amidst barren hills of electronic fantasies\\
+I search for oases of truth\\
+Though as small as mayflies\\
+I dare gaze at the galaxies
 \end{pullquote}
 
 \column{.47\textwidth}
-\begin{exampleblock}{算了我也不知道在写什么，do you?}
-Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. 对各位同学来说应该挑战不大。
+\begin{exampleblock}{Gosh I've no idea what I'm writing, do you?}
+Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. This should be easy, right?
 \end{exampleblock}
 
-\begin{alertblock}{算了我也不知道在写什么，do you?}
+\begin{alertblock}{Gosh I've no idea what I'm writing, do you?}
 \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
 \end{alertblock}
 
-\begin{block}{算了我也不知道在写什么，do you?}
+\begin{block}{Gosh I've no idea what I'm writing, do you?}
 \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
 \end{block}
 
 \begin{proof}
-显而易见，$1+1=2$.
+As everyone can clearly see, $1+1=2$.
 \end{proof}
 
 \begin{theorem}
-有一件很美好的事情将要发生，它终会发生。
+A wonderful thing is about to happen -- it \emph{will} eventually happen.
 \end{theorem}
 
 \begin{definition}
-有一件很美好的事情将要发生，它终会发生。
+A wonderful thing is about to happen -- it \emph{will} eventually happen.
 \end{definition}
 
 \end{columns}
 
 \begin{block}{Superior Images and False Horizons \citep{Mirage-Greenler1980,AtmRefrac-Hyperphysics}}
 \begin{center}\includegraphics[width=0.95\hsize]{miragesup.png}\end{center}
-% locally change the linespread for this English-only paragraph.
-\linespread{1}\selectfont
 A superior image can be produced when warm air exists over cold water. Again, using the pattern from Greenler, the vertical scale and the curvature are greatly exaggerated to show the effect. Such images are often seen at great distances in the arctic region when the air is significantly warmer than the water. Since the geometry of the mirage images depends on the details of the temperature contour, a great variety of mirage images can be formed.
 
 Source: \url{http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/mirage.html}
@@ -153,8 +162,8 @@ Source: \url{http://hyperphysics.phy-astr.gsu.edu/hbase/atmos/mirage.html}
 \vfill
 
 \begin{block}{\refname}
-% All English refs, so...
-\renewcommand*{\bibfont}{\relsize{-1}\linespread{1}\selectfont}
+\renewcommand*{\bibfont}{\small}
+\addtolength{\bibitemsep}{-0.5ex}
 \setlength{\biblabelsep}{0.25em}
 \printbibliography[heading=none]
 \end{block}

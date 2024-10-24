@@ -1,4 +1,4 @@
-% 中文请用ctexbeamer, 个人觉得行距linespread宽一点看起来比较舒服。
+% 中文请用ctexbeamer, 个人觉得行距linespread宽一点看起来比较舒服。XeLaTeX编译。
 \documentclass[aspectratio=1610,linespread=1.4,t]{ctexbeamer}
 
 % If this is an English-only deck, you don't need ctexbeamer nor the wider linespread
@@ -10,8 +10,8 @@
 % by LianTze Lim (liantze@gmail.com)
 % A beamer theme inspired by Zhou Shen's `Mirage' song  poster
 % 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
-% \usetheme{Mirage}           % Default = dark mode
-\usetheme[light]{Mirage}  % Alternative light mode 
+\usetheme{Mirage}           % Default = dark mode
+% \usetheme[light]{Mirage}  % Alternative light mode 
 
 % The glowy light in the footnline
 % \setlength{\MirageGlowRadius}{0.25ex}
@@ -19,16 +19,16 @@
 % Mirage theme loads the fontawesome5 package
 
 \title{Mirage Theme 蜃楼}
-\subtitle{《反深代词》已全平台上线}
-\author{董敏儿}
-\institute{（懂自懂）}
-\date{2024/05/19}
+\subtitle{此主题为基于《蜃楼》歌曲海报的二创}
+\author{林莲枝}
+\institute{《反深代词》专辑已在各大音乐平台上线}
+\date{2024/10/22}
 
-% These fonts will work with pdflatex, xelatex, lualatex
+% These fonts will work with pdflatex, xelatex, lualatex. If you're using ctexbeamer it's best to compile in xelatex.
 \usepackage[lining,tabular]{carlito}
 \usepackage{caladea}
 
-% But unicode and TTF/OTF fonts will only work with xelatex, lualatex
+% But unicode-math and TTF/OTF fonts will only work with xelatex, lualatex
 \usepackage{unicode-math}
 % \setmathfont{STIX Two Math}
 % \setmathfont{Erewhon Math}
@@ -73,7 +73,7 @@
 
 \end{frame}
 
-\section{Blocks}
+\section{其它示范}
 
 \begin{frame}[c]
 \frametitle{智慧的天梯从来都没尽头}
@@ -102,18 +102,22 @@
 % \renewcommand{\MirageTheoremPrefix}{\faCogs}
 
 \begin{frame}[allowframebreaks]{各种block 123}
-
+    
     \begin{exampleblock}{算了我也不知道在写什么，do you?}
     Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. 对各位同学来说应该挑战不大。
     \end{exampleblock}
 
+\begin{columns}[T]
+\column{0.48\textwidth}
     \begin{alertblock}{算了我也不知道在写什么，do you?}
     \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
     \end{alertblock}
-
+    
+\column{0.48\textwidth}
     \begin{block}{算了我也不知道在写什么，do you?}
     \[ x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
     \end{block}
+\end{columns}
     
     \begin{proof}
     显而易见，$1+1=2$.

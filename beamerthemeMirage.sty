@@ -1,4 +1,4 @@
-% beamerthemeMirage.sty v1.01 2024/09/18
+% beamerthemeMirage.sty v1.1 2024/10/24
 % by LianTze Lim (liantze@gmail.com)
 % A beamer theme inspired by Zhou Shen's `Mirage' song  poster
 % 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
@@ -147,7 +147,15 @@
 }{}
 
 \setbeamertemplate{frametitle}[default][left]
-\setbeamerfont{title}{family=\rmfamily\addfontfeatures{LetterSpace=5},size=\LARGE,series=\bfseries}
+\AddToHook{begindocument}{
+\ifdefined\addfontfeatures
+  \setbeamerfont{title}{family=\rmfamily\addfontfeatures{LetterSpace=5}}
+\else
+  \RequirePackage[letterspace=50]{microtype}
+  \setbeamerfont{title}{family=\rmfamily\lsstyle}
+\fi
+}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamerfont{frametitle}{family=\rmfamily,size=\Large,series=\bfseries}
 
 \newcommand{\MirageFrametitlePrefix}{\faBorderStyle}
