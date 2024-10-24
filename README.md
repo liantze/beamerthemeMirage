@@ -18,5 +18,5 @@ Two modes are available: the default with a dark look; and a `light` mode is ava
 ## Maintainer 宏包维护
 LianTze Lim 林莲枝 (liantze@gmail.com)
 
-## License
+## License 许可协议
 [LaTeX Project Public License (LPPL 1.3c)](https://www.latex-project.org/lppl/lppl-1-3c/)
