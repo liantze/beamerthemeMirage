@@ -1,0 +1,139 @@
+%!TEX program=lualatex
+\DocumentMetadata{
+  lang=en,
+  pdfstandard=ua-2,
+  tagging=on,
+  tagging-setup={math/setup=mathml-SE}
+}
+\documentclass[font-size=12pt]{ltx-talk}
+\usepackage[light]{talkthemeMirage}
+
+\usepackage{caladea}
+\usepackage[lining,tabular,sfdefault]{carlito}
+
+% Frankly xelatex won't work when tagging is on
+\ifboolexpr{bool{xetex} or bool{luatex}}{
+  % unicode-math or lua-unicode-math is automatically loaded
+  % \setmathfont{STIX Two Math}
+  % \setmathfont{Erewhon Math}
+  \setmathfont{Fira Math}
+}{% Sans math font in pdflatex:
+  \usepackage[T1]{fontenc}
+  \usepackage{newtxsf}
+}
+\title{Experimental Mirage ltx-talk Theme}
+\subtitle{Inspired by the song poster of the lead single, \emph{Mirage}}
+\author{LianTze Lim}
+\institute{The full album \emph{Shenself} now available on all major music  platforms}
+\date{2024/10/22}
+
+\begin{document}
+
+\maketitle[framestyle = wallpaper] % no header nor footer
+
+
+\section{Intro}
+\begin{frame}
+\frametitle{Introduction}
+
+\begin{itemize}
+    \item Behold the mechanical dove \faDove{} flying through the air 
+    \item How might its eyes be lit \faEye[regular] that it appears lifelike
+
+\begin{enumerate}
+    \item Are digital dawns and dusks \faCloudSun{} more colourful? \faCloudMoon
+    \item Are bionic lovers \faFaceGrinHearts{} more faithful? \faFaceGrin
+\end{enumerate}
+
+    \item Push this one door open \faDoorOpen{} and there are thousands more \faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
+\end{itemize}
+
+    %   \begin{pgfscope}%
+    % % %     \usebeamercolor{section in head/foot}%
+    % % %     \pgfsetfillcolor{section in head/foot.bg}%
+    %     \color{mirage@structure!80}%
+    %     \pgfsetfillcolor{mirage@bg}%
+    %     \pgfpathrectangle{\pgfpoint{-.5\paperwidth}{-0.625cm}}{\pgfpoint{\paperwidth}{1.25cm}}%
+    %     \pgfsetfading{beamer@headfademask}{}%
+    %     \pgfusepath{fill}%
+    %   \end{pgfscope}%
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}
+\frametitle{The ancient gaze from aeons ago}
+    \begin{enumerate}
+        \item How might it discern if this moment is fantasy or real
+        \begin{enumerate}
+	        \item Is man-made talent true inherent wisdom?
+	        \begin{enumerate}
+		        \item Do cloned bodies have souls?
+		        \item Forever questioning, but ever without a conclusion
+	        \end{enumerate}
+        \end{enumerate}
+        \item \alert{Can it be real}
+    \end{enumerate}
+
+\end{frame}
+
+\section{Blocks}
+
+\begin{frame}[c]
+\frametitle{The Heavenward Staircase of Wisdom is ever endless}
+\begin{columns}
+\begin{column}[c]{.4\textwidth}
+\begin{pullquote}
+    Can it be real\\
+    The world is a mirage
+\end{pullquote}
+\end{column}
+\hfill
+\begin{column}[c]{.5\textwidth}
+\colorlet{mirage@pullquote}{MirageBlue}
+\renewcommand{\MiragePullquoteOpen}{«}
+\begin{pullquote}\raggedright
+Amidst barren hills of electronic fantasies\\
+I search for oases of truth\\
+Though tiny as mayflies\\
+I dare gaze at the galaxies
+\end{pullquote}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+% \renewcommand{\MirageFrametitlePrefix}{\faDove}
+% \renewcommand{\MirageProofPrefix}{\faCheckSquare[regular]}
+% \renewcommand{\MirageTheoremPrefix}{\faCogs}
+
+\begin{frame}[allowframebreaks]
+\frametitle{Blocks blocks blocks 123}
+
+    \begin{exampleblock}{Gosh I've no idea what I'm writing, do you?}
+    Now solve $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$. This should be easy, right?
+    \end{exampleblock}
+
+    \begin{alertblock}{Gosh I've no idea what I'm writing, do you?}
+    \setlength{\abovedisplayshortskip}{-1em}
+    \[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{alertblock}
+
+    \begin{block}{Gosh I've no idea what I'm writing, do you?}
+    \setlength{\abovedisplayshortskip}{-1em}
+    \[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}, \quad\therefore \alpha \neq \Omega \]
+    \end{block}
+
+    % \begin{proof}
+    % As everyone can clearly see, $1+1=2$.
+    % \end{proof}
+
+    % \begin{theorem}
+    % A wonderful thing is about to happen -- it \emph{will} eventually happen.
+    % \end{theorem}
+    
+    % \begin{definition}
+    % A wonderful thing is about to happen -- it \emph{will} eventually happen.
+    % \end{definition}
+\end{frame}
+
+\end{document}

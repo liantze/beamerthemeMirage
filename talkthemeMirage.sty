@@ -1,0 +1,213 @@
+\ProvidesPackage{talkthemeMirage}[2026/01/25 Experimental "Mirage" theme for ltx-talk]
+\newif\ifMirage@light
+\DeclareOption{light}{\Mirage@lighttrue}
+\DeclareOption{dark}{\Mirage@lightfalse}
+\DeclareOption*{
+  \PackageWarning{talkthemeMerage}{Unknown option `\CurrentOption'}
+}
+\ExecuteOptions{dark}
+\ProcessOptions*\relax
+
+\RequirePackage{relsize}
+\RequirePackage[fixed]{fontawesome6}
+\RequirePackage[blocks,rounded,titlepage=false]{talkthemetcolorbox}
+
+\geometry{top=2cm}
+
+\definecolor{MirageGray0}{RGB}{30,30,30}
+\definecolor{MirageGray1}{RGB}{48,48,48}
+\definecolor{MirageGray2}{RGB}{140,140,140}
+\definecolor{MirageGray3}{RGB}{60,66,71}
+\definecolor{MiragePink}{RGB}{212,183,183}
+\definecolor{MirageBlue}{RGB}{156,185,220}
+
+\ifMirage@light
+  \colorlet{mirage@fg}{MirageGray3}
+  \colorlet{mirage@bg}{white}
+  \colorlet{mirage@structure}{MirageBlue!80!MirageGray0}
+  \colorlet{mirage@alert}{MiragePink!60!red!80!MirageGray0}
+  \colorlet{mirage@item}{MirageBlue!50!MirageGray0}
+  \colorlet{mirage@blockbody@bg}{MirageBlue!90}
+  \colorlet{mirage@blockbody@fg}{MirageBlue!40!black}
+  \colorlet{mirage@blocktitlealert@bg}{MiragePink!80}
+  \colorlet{mirage@pullquote}{MiragePink!90!mirage@fg}
+\else
+  \colorlet{mirage@fg}{white}
+  \colorlet{mirage@bg}{MirageGray3}
+  \colorlet{mirage@structure}{MirageBlue}
+  \colorlet{mirage@alert}{MiragePink!55!red!100!MirageGray0}
+  \colorlet{mirage@item}{MirageBlue!70!MirageGray0}
+  \colorlet{mirage@blockbody@bg}{MirageBlue!40!black}
+  \colorlet{mirage@blockbody@fg}{MirageBlue}
+  \colorlet{mirage@blocktitlealert@bg}{MiragePink}
+  \colorlet{mirage@pullquote}{MiragePink}
+\fi
+
+\colorlet{structure}{mirage@structure}
+\colorlet{alert}{mirage@alert}
+\colorlet{mirage@blocktitle@bg}{MirageBlue!30!black}
+\colorlet{mirage@blocktitle@fg}{MirageBlue!90}
+\colorlet{mirage@blockbodyexample@bg}{MirageBlue!40}
+\colorlet{mirage@blockbodyexample@fg}{MirageGray3}
+\colorlet{mirage@blocktitleexample@bg}{MirageBlue!90}
+\colorlet{mirage@blocktitleexample@fg}{MirageBlue!30!black}
+\colorlet{mirage@blockbodyalert@bg}{MiragePink!40}
+\colorlet{mirage@blockbodyalert@fg}{MirageGray3}
+\colorlet{mirage@blocktitlealert@fg}{MiragePink!60!red!80!MirageGray0}
+\colorlet{mirage@headfoot}{mirage@structure!80}
+
+\color{mirage@fg}
+\pagecolor{mirage@bg}
+
+\ifMirage@light
+  \pgfdeclareverticalshading{mirage@headdivfade}{\the\paperwidth}{%
+    color(0ex)=(white);%
+    color(0.2ex)=(MirageBlue);%
+    color(1.3ex)=(MiragePink);%
+    color(1.7ex)=(white)%
+  }
+\else
+  \pgfdeclareverticalshading{mirage@headdivfade}{\the\paperwidth}{%
+    color(0ex)=(MirageGray0);%
+    color(0.2ex)=(MirageBlue);%
+    color(1.3ex)=(MiragePink);%
+    color(1.7ex)=(MirageGray1)%
+  }
+\fi
+
+\usetikzlibrary{shadows}
+
+\pgfdeclareradialshading{tikz@lib@fade@circle@50}{\pgfpointorigin}{
+  color(0pt)=(pgftransparent!0); color(20bp)=(pgftransparent!0);%
+  color(25bp)=(pgftransparent!100); color(80bp)=(pgftransparent!100)}
+\pgfdeclarefading{circle with fuzzy edge 50 percent}{\pgfuseshading{tikz@lib@fade@circle@50}}
+
+\newlength{\MirageGlowRadius}
+\setlength{\MirageGlowRadius}{0.2ex}
+\newbox{\Mirage@smalleclipse}
+\savebox{\Mirage@smalleclipse}{%
+  \color{mirage@fg}%
+  \tikz{\node[anchor=center,circle,circular glow={fill=MiragePink,shadow scale=2.5, path fading={circle with fuzzy edge 50 percent}},draw=mirage@fg,fill=mirage@fg,outer sep=0pt,inner sep=\MirageGlowRadius](O){};%
+  \draw[line width=0.1ex,draw=mirage@fg](0.3ex,0pt) -- ++(0.75\paperwidth,0pt);%
+  }%
+}
+
+\begingroup%
+  \selectcolormodel{gray}%
+  \pgfdeclareverticalshading{beamer@headfade}{2\paperwidth}{%
+    color(0ex)=(pgftransparent!100);%
+    color(1.75cm)=(pgftransparent!0)%
+  }%
+  \pgfdeclarefading{beamer@headfademask}{\pgfuseshading{beamer@headfade}}%
+\endgroup
+
+\AddToHook{shipout/background}{%
+  % \put(0,0){%
+    \begin{pgfscope}%
+      \pgfsetfillcolor{mirage@headfoot}%
+      \pgfpathrectangle{\pgfpoint{-0.25cm}{0}}{\pgfpoint{\dimexpr\paperwidth+0.25cm}{-1.75cm}}%
+      \pgfsetfading{beamer@headfademask}{}%
+      \pgfusepath{fill}%
+    \end{pgfscope}%
+  % }%
+  \put(0cm, -1cm){%
+    \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{1.7ex}}%
+    \pgfuseshading{mirage@headdivfade}
+  }%
+  \put(\paperwidth-\wd\Mirage@smalleclipse, -\paperheight+\footskip-0.5ex){%
+    \usebox{\Mirage@smalleclipse}%
+  }%
+}
+
+\renewcommand{\labelitemi}{\textcolor{mirage@item}{\textbullet}}
+\renewcommand{\labelitemii}{\textcolor{mirage@item}{\textbullet}}
+\renewcommand{\labelitemiii}{\textcolor{mirage@item}{\textbullet}}
+\renewcommand{\labelenumi}{\textcolor{mirage@item}{\theenumi.}}
+\renewcommand{\labelenumii}{\textcolor{mirage@item}{\theenumi.\theenumii}}
+\renewcommand{\labelenumiii}{\textcolor{mirage@item}{\theenumii.\theenumiii}}
+
+\tcbuselibrary{theorems}
+\tcbset{
+  block/.append style={
+    colback=mirage@blockbody@bg,
+    coltext=mirage@blockbody@fg,
+    colbacktitle=mirage@blocktitle@bg,
+    coltitle=mirage@blocktitle@fg,
+    fonttitle=\rmfamily\bfseries
+  },
+  exampleblock/.append style={
+    colback=mirage@blockbodyexample@bg,
+    coltext=mirage@blockbodyexample@fg,
+    colbacktitle=mirage@blocktitleexample@bg,
+    coltitle=mirage@blocktitleexample@fg
+  },
+  alertblock/.append style={
+    colback=mirage@blockbodyalert@bg,
+    coltext=mirage@blockbodyalert@fg,
+    colbacktitle=mirage@blocktitlealert@bg,
+    coltitle=mirage@blocktitlealert@fg
+  }
+}
+
+\ifdefined\addfontfeatures
+  \providecommand{\lsstyle}{\addfontfeatures{LetterSpace=5}}
+\else
+  \RequirePackage[letterspace=50]{microtype}
+\fi
+
+\EditInstance{titlepage-element}{title}{
+  font=\LARGE\bfseries\rmfamily\lsstyle,
+}
+
+\EditInstance{titlepage-element}{subtitle}{
+  font=\large\bfseries\rmfamily\lsstyle,
+  after-skip = 1em
+}
+
+\EditInstance{titlepage-element}{author}{
+  after-skip = 0.5em
+}
+
+\EditInstance{titlepage-element}{institute}{
+  after-skip = 0.5em
+}
+
+\EditInstance{header}{std}{
+  left-hspace = 1em
+}
+
+\EditInstance{footer}{std}{
+  element-order = {framenumber},
+  color = mirage@headfoot,
+  font = \scriptsize,
+  right-hspace = 0.5em
+}
+
+\newcommand\@shortframenumber{%
+  \hfill\arabic{frame} of \RefProperty{lastpage}{totalframes}%
+}
+
+\newcommand{\MirageFrametitlePrefix}{\faBorderTopLeft}
+\EditInstance{frametitle}{header}{
+  font = \Large\rmfamily\bfseries{\color{mirage@structure!50!mirage@bg}\relsize{-1}\MathCollectFalse\MirageFrametitlePrefix}
+}
+
+\newcommand{\MiragePullquoteOpen}{\faQuoteLeft}
+\newcommand{\MiragePullquoteClose}{\faQuoteRight}
+
+\NewTColorBox{pullquote}{ d<> O{}}{
+  colback = mirage@bg,
+  coltext = mirage@pullquote,
+  leftrule = 0pt,
+  rightrule = 0pt,
+  toprule = 1.2pt,
+  bottomrule = 1.2pt,
+  colframe=mirage@pullquote!15!mirage@bg,
+  arc=0pt,
+  fontupper=\Large\rmfamily\itshape,
+  before upper = {%
+    \raisebox{0pt}[0pt][0pt]{\makebox[0pt]{\color{mirage@pullquote!30!mirage@bg}\huge\hskip-1em\MiragePullquoteOpen}}%
+  },
+  #2,
+  alt=<#1>{}{beamer hidden}
+}
