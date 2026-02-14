@@ -11,9 +11,8 @@
 \usepackage{caladea}
 \usepackage[lining,tabular,sfdefault]{carlito}
 
-% Frankly xelatex won't work when tagging is on
+% xelatex won't work now due to https://github.com/latex3/tagging-project/issues/832
 \ifboolexpr{bool{xetex} or bool{luatex}}{
-  % unicode-math or lua-unicode-math is automatically loaded
   % \setmathfont{STIX Two Math}
   % \setmathfont{Erewhon Math}
   \setmathfont{Fira Math}

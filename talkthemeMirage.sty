@@ -112,7 +112,7 @@
   % }%
   \put(0cm, -1cm){%
     \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{1.7ex}}%
-    \pgfuseshading{mirage@headdivfade}
+    \pgfuseshading{mirage@headdivfade}%
   }%
   \put(\paperwidth-\wd\Mirage@smalleclipse, -\paperheight+\footskip-0.5ex){%
     \usebox{\Mirage@smalleclipse}%
@@ -206,7 +206,23 @@
   arc=0pt,
   fontupper=\Large\rmfamily\itshape,
   before upper = {%
-    \raisebox{0pt}[0pt][0pt]{\makebox[0pt]{\color{mirage@pullquote!30!mirage@bg}\huge\hskip-1em\MiragePullquoteOpen}}%
+    \tagmcend%
+    \tagstructbegin{tag=BlockQuote}%
+    \tagmcbegin{}%
+    \raisebox{0pt}[0pt][0pt]{%
+      \tagmcend%
+      \tagstructbegin{tag=Artifact}%
+      \tagmcbegin{}%
+      \makebox[0pt]{\color{mirage@pullquote!30!mirage@bg}\huge\hskip-1em\MiragePullquoteOpen}%
+      \tagmcend%
+      \tagstructend%
+      \tagmcbegin{}
+    }%
+  },
+  after lower={%
+    \tagmcend%
+    \tagstructend%
+    \tagmcbegin{}%
   },
   #2,
   alt=<#1>{}{beamer hidden}
