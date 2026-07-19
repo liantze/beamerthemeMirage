@@ -1,4 +1,4 @@
-\ProvidesPackage{talkthemeMirage}[2026/01/25 Experimental "Mirage" theme for ltx-talk]
+\ProvidesPackage{talkthemeMirage}[2026/07/19 Experimental "Mirage" theme for ltx-talk]
 \newif\ifMirage@light
 \DeclareOption{light}{\Mirage@lighttrue}
 \DeclareOption{dark}{\Mirage@lightfalse}
@@ -102,7 +102,7 @@
 \endgroup
 
 \AddToHook{shipout/background}{%
-  % \put(0,0){%
+  % \put(0pt,0pt){%
     \begin{pgfscope}%
       \pgfsetfillcolor{mirage@headfoot}%
       \pgfpathrectangle{\pgfpoint{-0.25cm}{0}}{\pgfpoint{\dimexpr\paperwidth+0.25cm}{-1.75cm}}%
@@ -180,6 +180,7 @@
   element-order = {framenumber},
   color = mirage@headfoot,
   font = \scriptsize,
+  left-hspace = \dimexpr\paperwidth-3em\relax,
   right-hspace = 0.5em
 }
 
