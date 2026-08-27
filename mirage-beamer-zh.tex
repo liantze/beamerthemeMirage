@@ -8,21 +8,21 @@
 
 % beamerthemeMirage.sty v1.0 2024/04/14
 % by LianTze Lim (liantze@gmail.com)
-% A beamer theme inspired by Zhou Shen's `Mirage' song  poster
-% 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
+% A beamer theme inspired by a musical album art
+% 基于《蜃楼》歌曲海报色调的beamer主题
 \usetheme{Mirage}           % Default = dark mode
 % \usetheme[light]{Mirage}  % Alternative light mode 
 
 % The glowy light in the footnline
 % \setlength{\MirageGlowRadius}{0.25ex}
 
-% Mirage theme loads the fontawesome5 package
+% Mirage theme loads the fontawesome7 package
 
 \title{Mirage Theme 蜃楼}
 \subtitle{此主题为基于《蜃楼》歌曲海报的二创}
 \author{林莲枝}
-\institute{《反深代词》专辑已在各大音乐平台上线}
-\date{2024/10/22}
+\institute{（可选填）某某大学某某单位}
+\date{2026/08/27}
 
 % These fonts will work with pdflatex, xelatex, lualatex. If you're using ctexbeamer it's best to compile in xelatex.
 \usepackage[lining,tabular]{carlito}
@@ -38,45 +38,39 @@
 
 \frame{\maketitle}
 
-\section{Intro}
+\section{简介}
 \begin{frame}
-\frametitle{Introduction}
+\frametitle{一张幻灯片示例}
+
+作为示例的一些文字。
 
 \begin{itemize}
-    \item 看机械的白鸽\faDove{} 从空中飞过 
-    \item 要如何点睛\faEye[regular] 它才堪称鲜活
-
-\begin{enumerate}
-    \item 数字的晨昏\faCloudSun{} 是否更缤纷\faCloudMoon
-    \item 仿生的情人\faGrinHearts{} 是否更忠贞\faGrin*[regular]
-\end{enumerate}
-
-    \item 推开一扇门\faDoorOpen{} 还有万千重门\faDoorClosed{\small\faDoorClosed}{\footnotesize\faDoorClosed}{\scriptsize\faDoorClosed}{\tiny\faDoorClosed}
+    \item  一些文字，日月盈昃，辰宿列张。
+    \begin{itemize}
+        \item 日月盈昃，辰宿列张，此为第二级项目符号列表。
+        \item 日月盈昃，辰宿列张，此为第二级项目符号列表。
+    \end{itemize}
+    \item 一些文字，日月盈昃，辰宿列张。
 \end{itemize}
 
 \end{frame}
 
-\subsection{Lists}
 \begin{frame}
-\frametitle{那来自过去 古老的眼神}
-    \begin{enumerate}
-        \item 如何能辨认 此刻是幻是真
-        \begin{enumerate}
-	        \item 人造的天分 是否算慧根
-	        \begin{enumerate}
-		        \item 克隆的肉身 是否有灵魂
-		        \item 永远在追问 却从来都没结论
-	        \end{enumerate}
-        \end{enumerate}
-        \item \alert{Can it be real}
-    \end{enumerate}
-
+\frametitle{再来一张}
+\begin{enumerate}
+    \item  一些文字，日月盈昃，辰宿列张。
+    \begin{itemize}
+        \item 日月盈昃，辰宿列张，此为第二级有序列表。
+        \item 日月盈昃，辰宿列张，此为第二级有序列表。
+    \end{itemize}
+\item 再来一句\alert{刻骨铭心的口号}。
+\end{enumerate}
 \end{frame}
 
 \section{其它示范}
 
 \begin{frame}[c]
-\frametitle{智慧的天梯从来都没尽头}
+\frametitle{拉栏引语}
 \begin{columns}
 \begin{column}{.4\textwidth}
 \begin{pullquote}
@@ -98,10 +92,10 @@
 
 
 % \renewcommand{\MirageFrametitlePrefix}{\faDove}
-% \renewcommand{\MirageProofPrefix}{\faCheckSquare[regular]}
-% \renewcommand{\MirageTheoremPrefix}{\faCogs}
+% \renewcommand{\MirageProofPrefix}{\faSquareCheck[regular]}
+% \renewcommand{\MirageTheoremPrefix}{\faGears}
 
-\begin{frame}[allowframebreaks]{各种block 123}
+\begin{frame}[allowframebreaks]{各种block}
     
     \begin{exampleblock}{算了我也不知道在写什么，do you?}
     Now solve $x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}$. 对各位同学来说应该挑战不大。

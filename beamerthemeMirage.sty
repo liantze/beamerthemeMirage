@@ -1,6 +1,6 @@
-% beamerthemeMirage.sty v1.1.1 2025/01/19
+% beamerthemeMirage.sty v1.2 2026/08/27
 % by LianTze Lim (liantze@gmail.com)
-% A beamer theme inspired by Zhou Shen's `Mirage' song  poster
+% A beamer theme inspired by Zhou Shen's `Mirage' song poster
 % 基于周深《反深代词》先行曲《蜃楼》歌曲海报色调的beamer主题
 \ProvidesPackage{beamerthemeMirage}
 
@@ -9,7 +9,7 @@
 \ProcessOptionsBeamer
 
 \RequirePackage{regexpatch}
-\RequirePackage[fixed]{fontawesome5}
+\RequirePackage[fixed]{fontawesome7}
 \RequirePackage{relsize}
 
 \definecolor{MirageGray0}{RGB}{30,30,30}
@@ -57,8 +57,8 @@
   \setbeamercolor{block title alerted}{fg=MiragePink!60!red!80!MirageGray0,bg=MiragePink}
 \fi
 
-\newcommand{\MirageProofPrefix}{\faEllipsisH}
-\newcommand{\MirageTheoremPrefix}{\faChevronCircleRight}
+\newcommand{\MirageProofPrefix}{\faEllipsisVertical}
+\newcommand{\MirageTheoremPrefix}{\faCircleChevronRight}
 
 \addtobeamertemplate{proof begin}{%
   \let\oldinsertproofname\insertproofname%
@@ -158,7 +158,7 @@
 \setbeamerfont{title}{size=\LARGE,series=\bfseries}
 \setbeamerfont{frametitle}{family=\rmfamily,size=\Large,series=\bfseries}
 
-\newcommand{\MirageFrametitlePrefix}{\faBorderStyle}
+\newcommand{\MirageFrametitlePrefix}{\faBorderTopLeft}
 \addtobeamertemplate{frametitle}{%
   \let\oldinsertframetitle\insertframetitle%
   \renewcommand{\insertframetitle}{{\relsize{-1}\color{frametitle.fg!50!frametitle.bg}\MirageFrametitlePrefix}\oldinsertframetitle}%

@@ -16,25 +16,24 @@
 \setlist{leftmargin=*}
 \usepackage[colorlinks]{hyperref}
 
-\title{``Mirage'' Beamer Theme “蜃楼”beamer主题}
+\title{``Mirage'' \texttt{beamer} and \texttt{ltx-talk} theme\\“蜃楼”\texttt{beamer}与\texttt{ltx-talk}主题}
 \author{LianTze Lim 林莲枝}
-\date{v1.1.1: 2025-01-19\\\url{https://github.com/liantze/beamerthemeMirage}}
+\date{v1.2: 2026/08/27\\\url{https://github.com/liantze/beamerthemeMirage}}
 
 \begin{document}
 \maketitle
 
 \begin{paracol}{2}
 \begin{abstract}
-A beamer theme inspired by the
-\href{https://www.instagram.com/juncenart/p/C5LuwoSrBnW/?img_index=2}{album art} of Zhou Shen's song \href{https://open.spotify.com/track/1PR9aOkY0dyRRL81YXv9a4}{\emph{Mirage}},
-the lead single from his album \href{https://open.spotify.com/album/6IcyslRZfwWzpdhnFML6cd}{\emph{Shenself}}.
+A \texttt{beamer} and \texttt{ltx-talk} theme inspired by the
+\href{https://www.instagram.com/juncenart/p/C5LuwoSrBnW/?img_index=2}{album art} of the song \emph{Mirage}.
 \end{abstract}
 
 \switchcolumn
 
 \renewcommand*{\abstractname}{摘要}
 \begin{abstract}
-基于周深《\href{https://y.qq.com/n/ryqq/albumDetail/003szpvI3LMhQ7}{反深}\href{https://music.163.com/\#/album?id=190605791}{代词}》专辑的先行曲\href{http://xhslink.com/a/oF7IHZ0uUYkY}{《蜃楼》歌曲封面}，二创的beamer主题。
+基于\href{http://xhslink.com/a/oF7IHZ0uUYkY}{《蜃楼》歌曲宣传封面}二创的 \texttt{beamer} 和 \texttt{ltx-talk}主题。
 \end{abstract}
 \end{paracol}
 
@@ -112,7 +111,19 @@ With some modificatons, the Mirage theme can be used for creating posters  the \
 
 \switchcolumn*
 
-\section{Some simple customisationoptions}
+\section{Experimental \texttt{ltx-talk} theme}
+
+A very experimental \texttt{ltx-talk} theme \texttt{talkthemeMirage.sty} is provided. See the sample file \texttt{mirage-talk.tex}. Some elements aren't tagged correctly e.g.~the pullquotes and block environments; use at your own risk.
+
+\switchcolumn
+
+\section{\texttt{ltx-talk}主题}
+
+尝试做了一个适配\texttt{ltx-talk}“蜃楼”主题\texttt{talkthemeMirage.sty}，请参照\texttt{mirage-talk.tex}。目前还很粗糙，pullquotes和blocks不能正确标签，请自行斟酌使用。
+
+\switchcolumn*
+
+\section{Some simple customisation options}
 
 \begin{itemize}
 \item The Mirage theme itself doesn't set any body fonts, so you can load your own preferred fonts in your \texttt{.tex} files.
@@ -129,7 +140,7 @@ With some modificatons, the Mirage theme can be used for creating posters  the \
 \end{itemize} 
 for prefix icons of the frame title, \texttt{proof} block title and \texttt{theorem}-like block titles. (See commented code before frame 5.)
 
-\item The Mirage theme loads \texttt{fontawesome5}, so you can use
+\item The Mirage theme loads \texttt{fontawesome7}, so you can use
 icons provided by this package.
 
 \item \verb|\MirageGlowRadius| is a length controlling the size of the glowy circle in the footline; especially useful when creating posters with \texttt{beamerposter}.
@@ -153,7 +164,7 @@ icons provided by this package.
 \end{itemize} 
 这些是frame title、\texttt{proof} block title 以及\texttt{theorem}之类block titles的前缀装饰。（详见第5帧幻灯片之前的注释）
 
-\item “蜃楼”主题已加载\texttt{fontawesome5}宏包，可以尽情使用此宏包提供的符号。
+\item “蜃楼”主题已加载\texttt{fontawesome7}宏包，可以尽情使用此宏包提供的符号。
 
 \item \verb|\MirageGlowRadius| 是用来控制页脚的小光球半径的length；制作海报时可以酌量加大。
 \end{itemize}
@@ -166,5 +177,6 @@ icons provided by this package.
 \item[v1.01 (2024/09/18)] Adds beamerposter example and some updates for some easier customisations.
 \item[v1.1 (2024/10/24)] Reorganises sample .tex files and documentations; submitted to CTAN.
 \item[v1.1.1 (2025/01/19)] Bug fix: added missing second argument to \verb|\addtobeamertemplate{frametitle}|.
+\item[v1.2 (2026/08/27)] Upgraded \texttt{fontawesome5} to \texttt{fontawesome7}. Added experimental theme for \texttt{ltx-talk}.
 \end{description}
 \end{document}
