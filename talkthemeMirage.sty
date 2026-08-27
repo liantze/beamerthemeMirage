@@ -1,4 +1,7 @@
-\ProvidesPackage{talkthemeMirage}[2026/07/19 Experimental "Mirage" theme for ltx-talk]
+% talkthemeMirage.sty 2026/08/27
+% by LianTze Lim (liantze@gmail.com)
+% An ltx-talk theme inspired by Zhou Shen's `Mirage' song poster
+\ProvidesPackage{talkthemeMirage}[2026/08/27 Experimental "Mirage" theme for ltx-talk]
 \newif\ifMirage@light
 \DeclareOption{light}{\Mirage@lighttrue}
 \DeclareOption{dark}{\Mirage@lightfalse}
@@ -9,7 +12,7 @@
 \ProcessOptions*\relax
 
 \RequirePackage{relsize}
-\RequirePackage[fixed]{fontawesome6}
+\RequirePackage[fixed]{fontawesome7}
 \RequirePackage[blocks,rounded,titlepage=false]{talkthemetcolorbox}
 
 \geometry{top=2cm}
